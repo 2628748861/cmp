@@ -1,6 +1,6 @@
 package com.app.cmp.config.request;
 
-import com.app.cmp.BuildConfig;
+import com.app.library.BuildConfig;
 import com.app.library.frame.request.IHttpApi;
 
 import okhttp3.OkHttpClient;

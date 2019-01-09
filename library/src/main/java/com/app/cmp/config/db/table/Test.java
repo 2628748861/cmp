@@ -1,8 +1,8 @@
 package com.app.cmp.config.db.table;
 
 import org.greenrobot.greendao.annotation.Entity;
-import org.greenrobot.greendao.annotation.Id;
 import org.greenrobot.greendao.annotation.Generated;
+import org.greenrobot.greendao.annotation.Id;
 
 @Entity
 public class Test {
@@ -25,5 +25,7 @@ public class Test {
     public void setId(Long id) {
         this.id = id;
     }
+
+    
     
 }

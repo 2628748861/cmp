@@ -3,17 +3,17 @@ package com.app.cmp.mvp.activity;
 import android.os.Bundle;
 import android.widget.ImageView;
 
-import com.app.cmp.R;
-import com.app.cmp.config.db.DbApiProxy;
 import com.app.cmp.mvp.presenter.MainPresenter;
 import com.app.cmp.mvp.view.MainContractView;
+import com.app.library.R;
 import com.app.library.frame.imageloader.ImageLoaderProxy;
 import com.app.library.mvp.activity.BaseMvpActivity;
+
 import butterknife.BindView;
 
 public class MainActivity extends BaseMvpActivity<MainPresenter> implements MainContractView.View {
 
-    @BindView(R.id.image)
+    @BindView(R2.id.image)
     ImageView image;
 
     @Override
@@ -30,7 +30,7 @@ public class MainActivity extends BaseMvpActivity<MainPresenter> implements Main
 
     @Override
     public int applyContent() {
-        return R.layout.activity_main;
+        return R.layout.cmp_activity_main;
     }
 
     @Override

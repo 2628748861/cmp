@@ -3,11 +3,11 @@ package com.app.cmp.config.app;
 import android.content.Context;
 import android.util.Log;
 
-import com.app.cmp.BuildConfig;
 import com.app.cmp.config.db.DbApiProxy;
 import com.app.cmp.config.db.GreenDaoApi;
 import com.app.cmp.config.request.HttpApiProxy;
 import com.app.cmp.config.request.RetrofitApi;
+import com.app.library.BuildConfig;
 import com.app.library.app.AppLifecycle;
 
 public class CmpLifeCycle implements AppLifecycle {
