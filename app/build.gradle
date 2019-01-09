@@ -1,0 +1,60 @@
+apply plugin: 'com.android.application'
+apply plugin: 'org.greenrobot.greendao'
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion //
+    defaultConfig {
+        applicationId rootProject.ext.applicationId
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    //签名信息
+    signingConfigs {
+        release {
+            storeFile file("***")
+            storePassword "***"
+            keyAlias "***"
+            keyPassword "***"
+        }
+    }
+
+    buildTypes {
+        debug {
+            buildConfigField("String", "API", "\"" + rootProject.ext.server["debugServerUrl"] + "\"")
+            buildConfigField("String", "WEB_URL", "\"" + rootProject.ext.server["debugWeburl"] + "\"")
+            buildConfigField "String", "DB_NAME", "\"" + rootProject.ext.dbName + "\""
+
+            signingConfig signingConfigs.release
+            minifyEnabled false
+        }
+
+        release {
+            buildConfigField("String", "API", "\"" + rootProject.ext.server["releaseServerUrl"] + "\"")
+            buildConfigField("String", "WEB_URL", "\"" + rootProject.ext.server["releaseWebrUrl"] + "\"")
+            buildConfigField "String", "DB_NAME", "\"" + rootProject.ext.dbName + "\""
+
+            signingConfig signingConfigs.release
+            minifyEnabled true
+            shrinkResources true
+            zipAlignEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    resourcePrefix "${project.name}_"
+    greendao {
+        schemaVersion rootProject.ext.schemaVersion
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    implementation 'com.github.2628748861:base:v1.0.1'
+}

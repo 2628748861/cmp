@@ -1,0 +1,22 @@
+ext {
+    /Android/
+    applicationId =  "com.app.cmp"
+    minSdkVersion = 18
+    targetSdkVersion = 28
+    compileSdkVersion = 28
+    versionCode = 1
+    versionName = "1.0"
+
+    resourcePrefix= "cmp_"
+    schemaVersion= 1
+    dbName= "cmp.db"
+
+    /Http Config/
+    server = [
+            debugServerUrl:"https://suggest.taobao.com",
+           releaseServerUrl:"http://192.168.1.184:8030",
+
+            debugWeburl: "http://th5.aes-es.com:9998/",
+           releaseWeburl: "http://h5.tbb.gvgcn.com/tbb_mobile"
+    ]
+}
